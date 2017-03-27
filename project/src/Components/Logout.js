@@ -17,25 +17,19 @@ class Logout extends Component {
         super();
 
     }
-    /*componentDidMount() {
+    componentDidMount() {
         this.props.logout();
-    }*/
+    }
 
 
     render() {
         return (
             <div>
-                <Router>
-
                     { <div>
                         <Redirect to="/"/>
                         <Route exact path="/" component={Home}/>
                     </div>
                     }
-
-                </Router>
-
-
             </div>
 
         );

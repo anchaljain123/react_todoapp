@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react'
 export default class Signup extends Component {
     constructor(props) {
@@ -7,19 +6,20 @@ export default class Signup extends Component {
 
     }
 
-saveDetails = () => {
+    saveDetails = () => {
 
-    const user = {
-        name: this.state.name,
-        pwd : this.state.pwd,
-        id: Math.floor(Math.random()*10000000),
-        todolist:[],
-    };
-        console.log(user,'>>>>>>>signup>>>>>>')
-    this.props.addUser(user);
-    this.setState({ name: '' ,pwd : ''});
+        const user = {
+            name: this.state.name,
+            pwd: this.state.pwd,
+            id: Math.floor(Math.random() * 10000000),
+            todolist: [],
+        };
+        console.log(user, '>>>>>>>signup>>>>>>');
+        this.props.addUser(user);
+        this.setState({name: '', pwd: ''});
 
-}
+    }
+
     render() {
 
         return (

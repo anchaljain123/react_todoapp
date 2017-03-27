@@ -23,24 +23,7 @@
   to { transform: rotate(360deg); }
 }
 
-.navbar li {
 
-  display: inline;
-  padding: 5px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: antiquewhite;
-  height:30px;
-}
 input {
   width:20%;
   padding: 12px 20px;
@@ -61,3 +44,8 @@ button {
 
 }
 
+.dstyle{
+  border: 2px solid grey;
+  marginLeft:30px;
+  padding: 10px
+}
