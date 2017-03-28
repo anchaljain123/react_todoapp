@@ -11,7 +11,7 @@ class Todolist extends  React.Component{
     render(){
         const { todos } = this.props;
         return(
-            <div>
+            <div className="table-responsive" style={{'display':'inline'}}>
                 {
                     todos.map((item, i) => //we will start printing todos which were only in structure till now
                     ( <Todo key={i} todo={item} editTodo={this.props.editTodo} deleteTodo={this.props.deleteTodo} /> ))

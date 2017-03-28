@@ -41,12 +41,13 @@ export default class Container extends Component {
                 loginuser: matchUser.name,
                 loginusertodo: matchUser.todolist,
                 isAuthenticated: true,
+                iserr: false,
             })
             console.log(this.state,'state---')
         }
         else {
             console.log('not authenticated');
-            this.setState({iserr: !this.state.iserr})
+            this.setState({iserr: true});
         }
 
     }
@@ -78,6 +79,7 @@ export default class Container extends Component {
     }
 
     render() {
+        const showLogin = this.state.isAuthenticated ? {'visibility': 'visible'} : {'visibility': 'hidden'};
         return (
             <div>
                 <Router>
@@ -88,7 +90,9 @@ export default class Container extends Component {
                                 <li><Link to="/about">About</Link></li>
                                 <li><Link to="/signup">Signup</Link></li>
                                 <li ><Link to="/login">Login</Link></li>
-                                <li><Link to="/logout"><button>Logout</button></Link></li>
+                            </ul>
+                            <ul className="nav navbar-nav navbar-right">
+                                <li style={ showLogin }><Link to="/logout"><button>Logout</button></Link></li>
 
                             </ul>
                         </nav>

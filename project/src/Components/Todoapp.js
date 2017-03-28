@@ -31,11 +31,11 @@ export default class Todoapp extends Component {
     };
 
     editTodo = (todo) => {
-
+        console.log('todo', todo)
         let todos = [...this.state.todos];
         let todoToEdit = todos.find((todoTemp) => (todoTemp.id === todo.id));
         todoToEdit = todo;
-        this.setState({ todos });
+        this.setState({todos});
         this.props.updateUserTodo(todo);
 
     }
@@ -52,15 +52,44 @@ export default class Todoapp extends Component {
     render() {
         return (
             <div>
+                <section className="success" id="about">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center">
+                                <h2>TOdo</h2>
+                                <hr className="star-light"/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-12 col-lg-offset-5">
+                                <input type="button" value="ADD" className="btn btn-primary" onClick={() => {
+                                    this.setState({add: !this.state.add})
+                                }}/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-12 col-lg-offset-4">
+                                <div >
 
-                <input type="button" value="ADD" className="btn btn-primary" onClick={() => {
-                    this.setState({add: !this.state.add})
-                }}/>
-                { this.state.add ? <Addtodoform addTodo={this.addTodo}/> : <span />}
+                                    { this.state.add ? <Addtodoform addTodo={this.addTodo}/> : <span />}
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
 
-                <Todolist todos={this.state.todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo}/>
+                        <div className="row">
+                            <div className="col-lg-8  col-lg-offset-2">
+                                <div>
 
+                                    <Todolist todos={this.state.todos} editTodo={this.editTodo}
+                                              deleteTodo={this.deleteTodo}/>
+                                </div>
 
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
             </div>
         )
     }

@@ -15,36 +15,20 @@ class Todo extends  React.Component{
         };
     }
 
-    componentWillReceiveProps(props) {
-        const { description, date, status } = props.todo;
-        this.setState({
-            description,
-            status,
-            date,
-        });
-    }
-
     saveChanges = () => {
 
-       // let { todo } = this.props;
         const { description , date  } = this.state;
-       /* todo.description = description; //passing reference
-        todo.date = date;*/
 
-       let todoobj={
-           description,
-           date,
-       }
-       this.setState({todoobj});
-        this.props.editTodo(todoobj); //to edit on props
+        this.props.editTodo(this.state); //to edit on props
         this.setState({ edit: false });
     };
 
     changeStatus = () => {
 
-        let { todo } = this.props;
-        todo.status = todo.status === 'done' ? 'pending' : 'done';
-        this.props.editTodo(todo);
+        let { status } = this.state;
+        let statusres = status === 'done' ? 'pending' : 'done';
+        this.setState({status:statusres});
+        this.props.editTodo(this.state);
     };
 
     render(){
