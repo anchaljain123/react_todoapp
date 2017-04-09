@@ -1,18 +1,26 @@
 import React, {Component} from 'react';
 
 class Addtodoform extends Component {
-    state = {};
+    constructor() {
+        super();
+        this.state = {err: ""};
+    }
 
     saveTodo = () => {
-        const todo = {
-            description: this.state.description,
-            date: this.state.date,
-            todoId: Math.floor(Math.random() * 10000000),
-            status: 'Pending',
-        };
 
-        this.props.addTodo(todo);
-        this.setState({description: '', date: ''});
+        if(!(this.state.description && this.state.date)){
+            this.setState({ err: "Invalid Inputs" });
+                    }
+        else {
+            const todo = {
+                description: this.state.description,
+                date: this.state.date,
+                todoId: Math.floor(Math.random() * 10000000),
+                status: 'Pending',
+            };
+            this.props.addTodo(todo);
+            this.setState({description: '', date: '',err: ''});
+        }
     };
 
     render() {
@@ -33,6 +41,7 @@ class Addtodoform extends Component {
                     value={this.state.date}
                 />
                 <button onClick={this.saveTodo}>Save</button>
+                {this.state.err?<span>Invalid Inputs</span>:''}
             </div>
         );
     }

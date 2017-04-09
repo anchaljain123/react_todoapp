@@ -12,11 +12,19 @@ export default class Login extends Component {
 
     matchDetails =() => {
 
-        this.props.authenticateUser(this.state);
-        this.setState({
-            name: '',
-            pwd: ''
-        })
+        if(this.state.name == '' || this.state.pwd == ''){
+            this.setState({err:'Cannot be blank'})}
+
+
+        else {
+
+            this.props.authenticateUser(this.state);
+            this.setState({
+                name: '',
+                pwd: '',
+                err: '',
+            })
+        }
     }
 
     render() {

@@ -14,7 +14,7 @@ export default class Signup extends Component {
             id: Math.floor(Math.random() * 10000000),
             todolist: [],
         };
-        console.log(user, '>>>>>>>signup>>>>>>');
+
         this.props.addUser(user);
         this.setState({name: '', pwd: ''});
 

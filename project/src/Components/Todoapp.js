@@ -22,7 +22,6 @@ export default class Todoapp extends Component {
 
 
     addTodo = (todo) => {
-
         let {usertodo} = this.props;
         let todos = [...this.state.todos];//updated on state level
         todos = [...todos, todo];
@@ -31,7 +30,6 @@ export default class Todoapp extends Component {
     };
 
     editTodo = (todo) => {
-        console.log('todo', todo)
         let todos = [...this.state.todos];
         let todoToEdit = todos.find((todoTemp) => (todoTemp.id === todo.id));
         todoToEdit = todo;
@@ -41,7 +39,6 @@ export default class Todoapp extends Component {
     }
 
     deleteTodo = (todo) => {
-
         let todos = [...this.state.todos];
         let index = todos.findIndex((todoTemp) => (todoTemp.id === todo.id));
         todos.splice(index, 1);

@@ -53,9 +53,9 @@ class Todo extends  React.Component{
                         </div>
                         :
                         <div>
-                            <span>{this.state.description}</span>
-                            <span>{this.state.date}</span>
-                            <span>{this.state.status}</span>
+                            <span>{this.state.description}</span>&nbsp;&nbsp;&nbsp;
+                            <span>{this.state.date}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span>{this.state.status}</span>&nbsp;&nbsp;&nbsp;
                             <input type="checkbox" checked={status === 'done'} onClick={this.changeStatus}/>
                            <button onClick={() => this.props.deleteTodo(this.state)}>Delete</button>
                             <button onClick={ () => this.setState({ edit: !this.state.edit })}>Edit</button>

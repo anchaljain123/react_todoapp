@@ -18,7 +18,7 @@ class Logout extends Component {
 
     }
     componentDidMount() {
-        this.props.logout();
+        this.props.logout(); //use for async calls to db etc
     }
 
 

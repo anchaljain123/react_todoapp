@@ -26,7 +26,6 @@ export default class Container extends Component {
         let { userlist } = this.state;
         userlist = [...userlist, user];
         this.setState({userlist});
-        console.log(userlist, '*************userlist after adding user');
     }
 
     authenticateUser = (logindetails) => {
@@ -36,41 +35,42 @@ export default class Container extends Component {
 
         let matchUser = userlist.find((uservalue) => (uservalue.name === name && uservalue.pwd === pwd ));
         if (matchUser != undefined) {
-            console.log('authenticated user');
+            console.log(userlist,'---------------usertodo whn loggin');
             this.setState({
                 loginuser: matchUser.name,
                 loginusertodo: matchUser.todolist,
                 isAuthenticated: true,
                 iserr: false,
             })
-            console.log(this.state,'state---')
         }
         else {
-            console.log('not authenticated');
             this.setState({iserr: true});
         }
 
     }
 
     addUserTodo = (todo) => {
-
         let userlist = [...this.state.userlist];
         let userDetails = userlist.find((user) => (user.name === this.state.loginuser));
         userDetails.todolist = [...userDetails.todolist, todo];
         this.setState({userlist: this.state.userlist});
-        console.log(this.state.userlist, '*************userlist after adding loginusertodos');
-
-
-    }
+          }
 
     updateUserTodo = (todo) => {
+        let userlist = [...this.state.userlist];
 
-        let todoToEdit = this.state.userlist.find((todoTemp) => (todoTemp.todolist.id === todo.id));
-        todoToEdit = todo;
-        this.setState({userlist: this.state.userlist});
-        console.log(this.state.userlist, '*************userlist after updating loginusertodos');
+            userlist.forEach( function(user,i) {
+            if(user.todolist.id === todo.id){
+               user.todolist[i]=todo;
+                console.log(userlist,'---------------usertodo');
+                return;
+            }
+        });
+            console.log('---user list print   ',userlist)
+            this.setState({userlist});
 
-    }
+
+         }
 
     logoutUser =() =>{
         this.setState({
